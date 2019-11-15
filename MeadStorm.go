@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	handle()
-	listen()
+	handle() // Call the handle function
+	listen() // Call the listen function
 }
 
 func handle() {

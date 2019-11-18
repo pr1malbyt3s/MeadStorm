@@ -7,18 +7,18 @@ import (
 	"html/template"
 )
 
-// homePage function that provides the first page users visit on the application.
+/*// homePage function that provides the first page users visit on the application.
 func homePage(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "MeadStorm Home")
 }
-
-// inputPage function that serves a test page to display and handle an input field.
-func inputPage(w http.ResponseWriter, r *http.Request) {
+*/
+// InputPage function that serves a test page to display and handle an input field.
+func InputPage(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) // Prints the current request method.
 	// Checks if the current request method is GET.
 	// If so, parses and serves an HTML template. 	
 	if r.Method == "GET" {
-		t, err := template.ParseFiles("input.html")
+		t, err := template.ParseFiles("./assets/input.html")
 		if err != nil {
 			log.Fatal("ParseFiles: ", err)
 		}
@@ -33,8 +33,8 @@ func inputPage(w http.ResponseWriter, r *http.Request) {
 
 // Handler function that handles client requests and provides server's response.
 func handlers() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/inputPage", inputPage)
+	http.HandleFunc("/", Home)
+	http.HandleFunc("/InputPage", InputPage)
 	// Listening function that serves web content. Will update to TLS once web application is built.
 	err := http.ListenAndServe(":80", nil)
 	if err != nil {

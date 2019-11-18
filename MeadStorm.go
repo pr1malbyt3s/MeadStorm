@@ -24,8 +24,7 @@ func inputPage(w http.ResponseWriter, r *http.Request) {
 		}
 		t.Execute(w, nil)
 	} else if r.Method == "POST" {
-		r.ParseForm()
-		fmt.Println("input:", r.Form["data"])
+		fmt.Println("input:", r.FormValue("data"))
 		fmt.Fprintf(w, r.FormValue("data"))
 	} else {
 		fmt.Fprintf(w, "Method not allowed")

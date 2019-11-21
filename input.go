@@ -21,9 +21,9 @@ func InputPage(w http.ResponseWriter, r *http.Request) {
 	} else if r.Method == "POST" {
 	        fmt.Println("input data:", r.FormValue("data"))
                 fmt.Fprintf(w, html.EscapeString(r.FormValue("data")))
+		MongoSend(r.Method, r.FormValue("data"))
         // If request method is not GET or POST, prints a method not allowed message.
 	} else {
                 fmt.Fprintf(w, "Method not allowed")
         }
 }
-

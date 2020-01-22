@@ -1,0 +1,26 @@
+<html>
+<head>
+    <style>
+        .active {
+             color: black; 
+        }
+    </style>
+</head>
+<title>Viking Security- Customer Login Portal</title>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/contact">Contact Us</a>
+        <a class="active" href="/login">Customer Login Portal</a>
+    </div>
+    <body>
+        <form action="/login" method="POST">
+            <label for="username"><b>Username:</b></label><br>
+            <input type="text" name="username"><br>
+            
+            <label for="password"><b>Password:</b></label><br>
+            <input type="password" name="password"><br>
+            
+            <input type="submit" value="Login">
+        </form>
+    </body>
+</html>

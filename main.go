@@ -9,10 +9,12 @@ import (
 func handlers() {
 	// Handler for home page.
 	http.HandleFunc("/", Home)
-	// Handler for input page.
-	http.HandleFunc("/input", InputPage)
+	// Handler for contact page.
+	http.HandleFunc("/contact", ContactPage)
+    // Handler for login page.
+    http.HandleFunc("/login", LoginPage)
 	// Listening function that serves web content. Will update to TLS once web application is built.
-	err := http.ListenAndServe(":80", nil)
+	err := http.ListenAndServe(":8000", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}

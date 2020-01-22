@@ -10,13 +10,22 @@ import (
 
 )
 
-type Attack struct {
+type ContactAttack struct {
 	Method	string
-	Payload string
-	Time	time.Time
+    Name string
+    Email string
+    Message string
+	Time time.Time
 }
 
-func MongoSend(method string, data string) {
+type LoginAttack struct {
+    Method string
+    UserName string
+    Password string
+    Time time.Time
+}
+
+func MongoSendContact(method string, name string, email string, message string) {
 	clientOptions := options.Client().ApplyURI("mongodb://127.0.0.1:27017")
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 
@@ -25,7 +34,7 @@ func MongoSend(method string, data string) {
 	}
 
 	collection := client.Database("test").Collection("testCollection")
-	document := Attack{method, data, time.Now()}
+	document := ContactAttack{method, name, email, message, time.Now()}
 
 	insertResult, err := collection.InsertOne(context.TODO(), document)
 	if err != nil {
@@ -34,3 +43,20 @@ func MongoSend(method string, data string) {
 	fmt.Println("Inserted document: ", insertResult.InsertedID)
 }
 
+func MongoSendLogin(method string, username string, password string) {
+	clientOptions := options.Client().ApplyURI("mongodb://127.0.0.1:27017")
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	collection := client.Database("test").Collection("testCollection")
+	document := LoginAttack{method, username, password, time.Now()}
+
+	insertResult, err := collection.InsertOne(context.TODO(), document)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Inserted document: ", insertResult.InsertedID)
+}

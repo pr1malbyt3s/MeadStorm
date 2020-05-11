@@ -1,0 +1,81 @@
+h1 {
+	color: black;
+}
+
+p {
+	color: black;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: seagreen;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
+}
+
+li a:hover:not(.active) {
+	background-color: navy;
+}
+
+.inuse {
+	background-color: slategray;
+}
+
+input[type=text] {
+	width: 300px;
+	padding: 6px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 2px solid seagreen;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+	
+input[type=password] {
+	width: 300px;
+	padding: 6px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 2px solid seagreen;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+	
+input[type=submit] {
+	background-color: seagreen;
+	width: 300px;
+	border: none;
+	color: white;
+	padding: 6px 20px;
+	text-decoration: none;
+	margin: 8px 0;
+	font: bold 16px Arial;		
+}
+	
+input[type=submit]:hover {
+	background-color: white;
+	width: 300px;
+	border: 2px solid seagreen;
+	color: seagreen;
+	padding: 6px 20px;
+	text-decoration: none;
+	margin: 8px 0;     
+}
+
+body {
+	font-family: "Arial";
+	background-color: whitesmoke;	
+}
